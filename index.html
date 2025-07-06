@@ -410,15 +410,17 @@
       function getRevealLinesFromParams(params) {
         // Defaults
         const lines = [];
-        let photo = params.photo ? decodeURIComponent(params.photo) : "";
+        let photo = params.photo
+          ? decodeURIComponent(params.photo)
+          : "https://i.imgur.com/0xEfo33.jpeg";
         // Only allow http:, https: or data:image/ URLs for images
         if (photo && !/^(https?:|data:image\/)/i.test(photo)) {
           photo = "";
         }
-        const main = params.main || "We are expecting!";
-        const sub = params.sub || "";
+        const main = params.main || "We're expecting again!";
+        const sub = params.sub || "Baby Miller #2 coming July";
         const date = params.date || "";
-        const from = params.from || "";
+        const from = params.from || "❤️ The Millers";
         if (main) lines.push({ type: "main", content: main });
         if (sub) lines.push({ type: "sub", content: sub });
         if (date) lines.push({ type: "date", content: date });
